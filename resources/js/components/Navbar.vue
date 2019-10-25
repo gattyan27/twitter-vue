@@ -11,7 +11,7 @@
                 <!-- Right Side Of Navbar -->
                 <div class="navbar-collapse collapse">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
+                        <li class="nav-item" v-if="isLogin">
                             <button class="btn btn-md btn-primary">
                                 ツイート
                             </button>
@@ -19,13 +19,13 @@
                         <li class="nav-item">
                             <router-link class="col-md-8 mb-3 text-right" to="/users">ユーザ一覧</router-link>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item" v-if="isLogin">
                             <img src="../../../public/user_image.png" alt="profile_image" class="rounded-circle" width="50" height="50">
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item" v-if="isLogin">
                             <router-link class="col-md-8 mb-3 text-right" to="#">プロフィール</router-link>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item" v-else>
                             <router-link class="col-md-8 mb-3 text-right" to="/login">
                                 Login / Register
                             </router-link>
@@ -38,3 +38,14 @@
 </template>
 
 <script>
+export default {
+    computed: {
+        isLogin () {
+            return this.$store.getters['auth/check'];
+        },
+        username () {
+            return this.$store.getters['auth/username'];
+        }
+    }
+}
+</script>
