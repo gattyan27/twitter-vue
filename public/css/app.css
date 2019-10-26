@@ -11145,3 +11145,11 @@ a.text-dark:focus {
   text-align: right;
 }
 
+.errors {
+  border: 1px solid #c7004c;
+  border-radius: 0.25rem;
+  color: #c7004c;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
