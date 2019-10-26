@@ -16,3 +16,6 @@ Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('/user', function() {
     return Auth::user();
 })->name('user');
+
+// ツイート投稿
+Route::post('/tweets', 'TweetController@create')->name('tweet.create');
