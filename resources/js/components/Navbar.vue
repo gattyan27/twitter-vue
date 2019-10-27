@@ -12,7 +12,7 @@
                 <div class="navbar-collapse collapse">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item" v-if="isLogin">
-                            <button class="btn btn-md btn-primary">
+                            <button class="btn btn-md btn-primary" @click="showForm = !showForm">
                                 ツイート
                             </button>
                         </li>
@@ -32,13 +32,23 @@
                         </li>
                     </ul>
                 </div>
-            
         </div>
+        <tweet-form v-model="showForm"></tweet-form>
     </nav>
 </template>
 
 <script>
+import TweetForm from './TweetForm.vue';
+
 export default {
+    components: {
+        TweetForm
+    },
+    data() {
+        return {
+            showForm: false
+        }
+    },
     computed: {
         isLogin () {
             return this.$store.getters['auth/check'];

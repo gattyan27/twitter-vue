@@ -8,13 +8,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 
 class TweetController extends Controller
 {
     public function __construct()
     {
-        this->middleware('auth');
+        $this->middleware('auth');
     }
 
     public function create(StoreTweet $request)
@@ -24,7 +25,7 @@ class TweetController extends Controller
 
         $tweet->user_id = $user->id;
         $tweet->text = $request['text'];
-        
+
         Auth::user()->tweets()->save($tweet);
 
         return response($tweet, 201);

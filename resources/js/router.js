@@ -5,6 +5,7 @@ import Login from './pages/Login.vue';
 import UserList from './pages/UserList.vue';
 import TweetList from './pages/TweetList.vue';
 import SystemError from './pages/errors/System.vue';
+import TweetDetail from './pages/TweetDetail.vue';
 
 import store from './store'
 
@@ -14,6 +15,11 @@ const routes = [
     {
         path: '/',
         component: TweetList
+    },
+    {
+        path: '/tweets/:id',
+        component: TweetDetail,
+        props: true
     },
     {
         path: '/login',
