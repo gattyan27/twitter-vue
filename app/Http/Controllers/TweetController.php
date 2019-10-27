@@ -15,7 +15,14 @@ class TweetController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except(['index']);
+    }
+
+    public function index()
+    {
+        $tweets = Tweet::with(['user'])->orderBy(Tweet::CREATED_AT, 'desc')->paginate();
+
+        return $tweets;
     }
 
     public function create(StoreTweet $request)

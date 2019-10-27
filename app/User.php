@@ -15,11 +15,11 @@ class User extends Authenticatable
     ];
 
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token', 'email', 
     ];
 
-    protected $casts = [
-        'email_verified_at' => 'datetime',
+    protected $visible = [
+        'id', 'name'
     ];
 
     public function tweets()

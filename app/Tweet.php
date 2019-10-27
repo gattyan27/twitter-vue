@@ -10,6 +10,10 @@ class Tweet extends Model
         'text'
     ];
 
+    protected $visible = [
+        'id', 'user',
+    ];
+
     public function user()
     {
         return $this->belongsTo('App\User');
@@ -19,4 +23,5 @@ class Tweet extends Model
     {
         return $this->hasMany('App\Favorite');
     }
+
 }
