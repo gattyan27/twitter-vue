@@ -1,0 +1,6 @@
+<template>
+    <div class="loader">
+        <p class="loading__text">Uploaging...</p>
+        <div class="loader__item loader__item--heart"><div></div></div>
+    </div>
+</template>
