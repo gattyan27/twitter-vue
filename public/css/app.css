@@ -11166,3 +11166,114 @@ a.text-dark:focus {
   width: 90%;
 }
 
+.tweet {
+  position: relative;
+}
+
+.tweet:hover .tweet__overlay {
+  visibility: visible;
+}
+
+.tweet:nth-child(4n+1) .tweet__wrapper {
+  background: #DBBCD5;
+}
+
+.tweet:nth-child(4n+2) .tweet__wrapper {
+  background: #DBDBBC;
+}
+
+.tweet:nth-child(4n+3) .tweet__wrapper {
+  background: #BCDBC8;
+}
+
+.tweet:nth-child(4n) .tweet__wrapper {
+  background: #BCC8DB;
+}
+
+.tweet__wrapper {
+  overflow: hidden;
+  padding-top: 75%;
+  position: relative;
+}
+
+.tweet__image {
+  display: block;
+  left: 50%;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+}
+
+.tweet__image--landscape {
+  max-height: 100%;
+  max-width: none;
+  opacity: 1;
+}
+
+.tweet__image--portrait {
+  max-width: 100%;
+  opacity: 1;
+}
+
+.tweet__overlay {
+  background: rgba(0, 0, 0, 0.3);
+  bottom: 0;
+  color: #fff;
+  cursor: -webkit-zoom-in;
+  cursor: zoom-in;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  left: 0;
+  padding: 1rem;
+  position: absolute;
+  right: 0;
+  text-decoration: none;
+  top: 0;
+  visibility: hidden;
+}
+
+.tweet__controls {
+  text-align: right;
+}
+
+.tweet__action {
+  background: #fff;
+  border: 0;
+  border-radius: 0.25rem;
+  color: #222222;
+  cursor: pointer;
+  display: inline-block;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1;
+  margin-left: 0.25rem;
+  opacity: 0.8;
+  outline: none;
+  padding: 0.5em 0.75em;
+}
+
+.tweet__action:hover {
+  opacity: 1;
+}
+
+.tweet__action--like .icon {
+  color: #e3342f;
+  margin-right: 0.5em;
+}
+
+.tweet__action--liked {
+  background: #e3342f;
+  color: #fff;
+}
+
+.tweet__action--liked .icon {
+  color: #fff;
+}
+

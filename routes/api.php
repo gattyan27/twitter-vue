@@ -25,3 +25,9 @@ Route::get('/tweets', 'TweetController@index')->name('tweet.index');
 
 // ツイート詳細
 Route::get('/tweets/{id}', 'TweetController@show')->name('tweet.show');
+
+// いいね
+Route::put('/tweets/{id}/like', 'TweetController@like')->name('tweet.like');
+
+// いいね解除
+Route::delete('/tweets/{id}/like', 'TweetController@unlike');

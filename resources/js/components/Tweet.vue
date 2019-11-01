@@ -6,15 +6,21 @@
                         {{item.user.name}}
                     </div>
                     <div class="card-body">
-                        <router-link :to="`/tweets/{$item.id}`" style="text-decoration: none; color: black">
+                        <router-link :to="`/tweets/${item.id}`" style="text-decoration: none; color: black">
                             {{item.text}}
                         </router-link>
                     </div>
                     <div class="card-footer py-1 d-flex justify-content-end bg-white">
-                        <router-link to="#">...</router-link>
                         <div class="d-flex align-items-center">
+                            <button 
+                                class="tweet__action tweet__action--like"
+                                :class="{ 'tweet_action--likes': item.liked_by_user }"
+                                title="Like tweet"
+                                @click.prevent="like"
+                            >
                                 <i class="fas fa-heart fa-fw text-primary"></i>
-                                <p class="mb-0 text-secondary">10</p>
+                            </button>
+                            <p class="mb-0 text-secondary">{{ item.likes_count }}</p>
                         </div>
                     </div>
                 </div>
@@ -28,6 +34,14 @@ export default {
         item: {
             type: Object,
             required: true
+        }
+    },
+    methods: {
+        like() {
+            this.$emit('like', {
+                id: this.item.id,
+                liked: this.item.liked_by_user
+            })
         }
     }
 }

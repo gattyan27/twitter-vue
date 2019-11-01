@@ -10,8 +10,15 @@
                     </div>
                     <div class="card-footer py-1 d-flex justify-content-end bg-white">
                         <div class="d-flex align-items-center">
+                                <button 
+                                class="tweet__action tweet__action--like"
+                                :class="{ 'tweet_action--likes': tweet.liked_by_user }"
+                                title="Like tweet"
+                                @click.prevent="onLikeClick"
+                            >
                                 <i class="fas fa-heart fa-fw text-primary"></i>
-                                <p class="mb-0 text-secondary">10</p>
+                            </button>
+                            <p class="mb-0 text-secondary">{{ tweet.likes_count }}</p>
                         </div>
                     </div>
             </div>
@@ -34,16 +41,54 @@ export default {
             tweet: []
         }
     },
+    computed: {
+        isLogin() {
+            return this.$store.getters['auth/check']
+        }
+    },
     methods: {
         async fetchTweet() {
             const response = await axios.get(`/api/tweets/${this.id}`)
 
             if(response.status !== OK) {
-                this.$store.commit('error/setConde', response.status)
+                this.$store.commit('error/setCode', response.status)
                 return false
             }
-            console.log(response)
             this.tweet = response.data
+        },
+        onLikeClick() {
+            if(! this.isLogin) {
+                alert('いいね機能を使うにはログインしてください。')
+                return false
+            }
+
+            if(this.tweet.liked_by_user) {
+                this.unlike()
+            } else {
+                this.like()
+            }
+        },
+        async like() {
+            const response = await axios.put(`/api/tweets/${this.id}/like`)
+
+            if(response.status !== OK) {
+                this.$store.commit('error/setCode', response.status)
+                return false
+            }
+
+            this.$set(this.tweet, 'likes_count', this.tweet.likes_count + 1)
+            this.$set(this.tweet, 'liked_by_user', true)
+        },
+        async unlike() {
+            const response = await axios.delete(`/api/tweets/${this.id}/like`)
+
+            if(response.status !== OK) {
+                this.$store.commit('error/setCode', response.status)
+                return false
+            }
+
+            this.$set(this.tweet, 'likes_count', this.tweet.likes_count - 1)
+            this.$set(this.tweet, 'liked_by_user', false)
         }
     },
     watch: {
