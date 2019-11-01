@@ -40,8 +40,13 @@ export default {
             this.Tweets = response.data
         }
     },
-    mounted() {
-        this.fetchTweets()
+    watch: {
+        $route: {
+            async handler () {
+                await this.fetchTweets()
+            },
+            immediate: true
+        }
     }
 }
 </script>

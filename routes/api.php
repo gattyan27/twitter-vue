@@ -22,3 +22,6 @@ Route::post('/tweets', 'TweetController@create')->name('tweet.create');
 
 // ツイート一覧
 Route::get('/tweets', 'TweetController@index')->name('tweet.index');
+
+// ツイート詳細
+Route::get('/tweets/{id}', 'TweetController@show')->name('tweet.show');

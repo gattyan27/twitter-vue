@@ -1,5 +1,4 @@
 <template>
-    <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8 mb-3">
                 <div class="card">
@@ -7,7 +6,7 @@
                         {{item.user.name}}
                     </div>
                     <div class="card-body">
-                        <router-link to="#" style="text-decoration: none; color: black">
+                        <router-link :to="`/tweets/{$item.id}`" style="text-decoration: none; color: black">
                             {{item.text}}
                         </router-link>
                     </div>
@@ -21,7 +20,6 @@
                 </div>
             </div>
         </div>
-    </div>
 </template>
 
 <script>

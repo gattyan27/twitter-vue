@@ -11129,3 +11129,40 @@ a.text-dark:focus {
   margin-bottom: 1rem;
 }
 
+.form__item {
+  border: 1px solid #dedede;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.5em 0.75em;
+  width: 100%;
+}
+
+.form label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.form__output {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.form__button {
+  text-align: right;
+}
+
+.tweet-form {
+  background: #fff;
+  border-radius: 0.25rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  max-height: 75vh;
+  max-width: 600px;
+  overflow: scroll;
+  padding: 1.5rem;
+  position: absolute;
+  right: 2%;
+  top: 3.5rem;
+  width: 90%;
+}
+

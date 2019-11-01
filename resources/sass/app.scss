@@ -34,3 +34,44 @@
   color: $danger;
   margin-bottom: 1rem;
 }
+
+.form {
+  &__item {
+    border: 1px solid $grey-3;
+    border-radius: .25rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    padding: .5em .75em;
+    width: 100%;
+  }
+
+  label {
+    display: block;
+    margin-bottom: .5rem;
+  }
+
+  &__output {
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  &__button {
+    text-align: right;
+  }
+}
+
+.tweet-form {
+  background: #fff;
+  border-radius: .25rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, .3);
+  max-height: 75vh;
+  max-width: 600px;
+  overflow: scroll;
+  padding: 1.5rem;
+  position: absolute;
+  right: 2%;
+  top: 3.5rem;
+  width: 90%;
+}
+
+
