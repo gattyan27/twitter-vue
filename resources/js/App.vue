@@ -4,7 +4,7 @@
             <navbar></navbar>
         </header>
         <main>
-            <div class="container">
+            <div class="container" style="padding-top: 1rem;">
                 <message></message>
                 <router-view></router-view>
             </div>

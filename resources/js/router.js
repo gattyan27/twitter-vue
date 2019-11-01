@@ -14,7 +14,8 @@ Vue.use(VueRouter);
 const routes = [
     {
         path: '/',
-        component: TweetList
+        component: TweetList,
+        
     },
     {
         path: '/tweets/:id',

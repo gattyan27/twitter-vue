@@ -10,7 +10,7 @@
 
                 <!-- Right Side Of Navbar -->
                 <div class="navbar-collapse collapse">
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto align-items-center">
                         <li class="nav-item" v-if="isLogin">
                             <button class="btn btn-md btn-primary" @click="showForm = !showForm">
                                 ツイート

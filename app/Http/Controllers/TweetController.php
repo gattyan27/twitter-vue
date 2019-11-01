@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreTweet;
 use App\Tweet;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -18,10 +19,10 @@ class TweetController extends Controller
         $this->middleware('auth')->except(['index']);
     }
 
-    public function index()
+    public function index(Tweet $tweet)
     {
-        $tweets = Tweet::with(['user'])->orderBy(Tweet::CREATED_AT, 'desc')->paginate();
-
+        $user = auth()->user();
+        $tweets = Tweet::with('user')->orderBy('id', 'desc')->get();
         return $tweets;
     }
 

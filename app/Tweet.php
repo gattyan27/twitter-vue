@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Tweet extends Model
@@ -11,7 +12,7 @@ class Tweet extends Model
     ];
 
     protected $visible = [
-        'id', 'user',
+        'id', 'user', 'user_id', 'text',self::CREATED_AT
     ];
 
     public function user()
