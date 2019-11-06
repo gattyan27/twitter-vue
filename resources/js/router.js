@@ -5,6 +5,7 @@ import Login from './pages/Login.vue';
 import UserList from './pages/UserList.vue';
 import TweetList from './pages/TweetList.vue';
 import SystemError from './pages/errors/System.vue';
+import NotFound from './pages/errors/NotFound.vue';
 import TweetDetail from './pages/TweetDetail.vue';
 
 import store from './store'
@@ -40,7 +41,11 @@ const routes = [
     {
         path: '/500',
         component: SystemError
-    }
+    },
+    {
+        path: '*',
+        component: NotFound
+    },
 ];
 
 const router = new VueRouter({

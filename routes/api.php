@@ -31,3 +31,10 @@ Route::put('/tweets/{id}/like', 'TweetController@like')->name('tweet.like');
 
 // いいね解除
 Route::delete('/tweets/{id}/like', 'TweetController@unlike');
+
+// トークンリフレッシュ
+Route::get('/refresh-token', function(Illuminate\Http\Request $request) {
+    $request->session()->regenerateToken();
+
+    return response()->json();
+});
